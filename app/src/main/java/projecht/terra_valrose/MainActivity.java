@@ -7,19 +7,21 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 //le commentaire de test
 public class MainActivity extends Activity {
 
     public static float SCREEN_LARGEUR;
     public static float SCREEN_HAUTEUR;
     private Engine engine;
+    private BoardView boardView;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -28,6 +30,12 @@ public class MainActivity extends Activity {
         SCREEN_LARGEUR = metrics.widthPixels;
 
         engine = new Engine(this);
+        boardView = new BoardView(this);
+
+        List<Frame> listFrame = engine.buildListFrame();
+        boardView.setListFrame(listFrame);
+
+        setContentView(boardView);
 
        // Log.d("moi", SCREEN_LARGEUR + " " + SCREEN_HAUTEUR);
     }
