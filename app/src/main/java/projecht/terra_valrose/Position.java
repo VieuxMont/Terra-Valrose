@@ -25,4 +25,9 @@ public class Position {
     public void setYhaut(int yhaut) {
         this.yhaut = yhaut;
     }
+
+    @Override
+    public String toString() {
+        return "x = " + xlarg + " y = " + yhaut;
+    }
 }

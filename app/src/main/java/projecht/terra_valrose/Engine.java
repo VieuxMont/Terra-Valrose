@@ -1,10 +1,6 @@
 package projecht.terra_valrose;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +12,7 @@ public class Engine {
     private List<Frame> listFrame;
 
     public Engine(MainActivity mainActivity){
-        //Log.d("moi", mainActivity.SCREEN_LARGEUR + " " + mainActivity.SCREEN_HAUTEUR);
-        Log.d("moi", "" + COTE_CASE);
+        this.mainActivity = mainActivity;
     }
 
     public List<Frame> buildListFrame(){

@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-//le commentaire de test
 public class MainActivity extends Activity {
 
     public static float SCREEN_LARGEUR;
@@ -37,7 +36,11 @@ public class MainActivity extends Activity {
 
         setContentView(boardView);
 
-       // Log.d("moi", SCREEN_LARGEUR + " " + SCREEN_HAUTEUR);
+        Frame f = new Frame(0,0,100);
+        Log.d("moi", "pos " + f.getP());
+        Frame f1 = new Frame(100,0,100);
+        Log.d("moi", "pos " + f1.getP());
+
     }
 
     @Override

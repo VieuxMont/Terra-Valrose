@@ -1,10 +1,16 @@
 package projecht.terra_valrose;
 
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.RectF;
+import android.util.Log;
 
 public class Frame {
+
+    public Position getP() {
+        return p;
+    }
+
+    Position p;
 
     public RectF getRect() {
         return rect;
@@ -19,9 +25,20 @@ public class Frame {
 
     private int color = Color.BLACK;
 
+    private Position calculPos(float posX, float posY){       //determine une position par rapport aux coordonnées de la case
+        int x = 0;
+        int y = 0;
+        x = (int)(6 * (posX / MainActivity.SCREEN_LARGEUR));
+        y = (int)(8 * (posY / MainActivity.SCREEN_HAUTEUR));
+        return new Position(x, y);
+    }
+
     public Frame(float x, float y, float cote){
         rect = new RectF(x, y, cote, cote);
         this.cote = cote;
+        this.p = calculPos(x,y);
+        //Log.d("moi", "pos " + p);
+
     }
 
 }
