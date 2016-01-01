@@ -23,8 +23,8 @@ public class Engine {
     public List<Frame> buildListFrame(){
         listFrame = new ArrayList<>();
 
-        for(int i =0; i < 6; i++){
-            for(int j = 0; j < 8; j++){
+        for(int i =0; i <= 6; i++){
+            for(int j = 0; j <= 8; j++){
                 listFrame.add(new Frame(i * COTE_CASE, j * COTE_CASE, COTE_CASE));
             }
         }
