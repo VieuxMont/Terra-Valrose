@@ -28,7 +28,7 @@ public class Frame {
 
 
     public Frame(float x, float y, float cote, Position p){
-        rect = new RectF(x, y, cote, cote);
+        rect = new RectF(x, y, x + cote, y + cote);
         this.cote = cote;
         this.p = p;
         //Log.d("moi", "pos " + p);

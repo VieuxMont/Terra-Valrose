@@ -24,10 +24,10 @@ public class Engine {
     public List<Frame> buildListFrame(){
         listFrame = new ArrayList<>();
 
-        for(int i =0; i <= 6; i++){
-            for(int j = 0; j <= 8; j++){
-                Position position = new Position(i,j);
-                Frame frame = new Frame(i * COTE_CASE, j * COTE_CASE, COTE_CASE, position);
+        for(int i =0; i <= 5; i++){
+            for(int j = 0; j <= 7; j++){
+                Position position = new Position(i + 1,j + 1);
+                Frame frame = new Frame((i * COTE_CASE) , (j * COTE_CASE)  , COTE_CASE, position);
                 listFrame.add(frame);
             }
         }
@@ -35,17 +35,9 @@ public class Engine {
         return listFrame;
     }
 
-    public Position calculPos(float posX, float posY){       //determine une position par rapport aux coordonnees de la case
-        int x = 0;
-        int y = 0;
-        x = 1 + (int)(6 * (posX / MainActivity.SCREEN_LARGEUR));
-        y = 1 + (int)(8 * (posY / MainActivity.SCREEN_HAUTEUR));
-        return new Position(x, y);
-    }
-
     public Frame getFrameByPosition(Position position) {
         for(Frame f : listFrame){
-            if(f.getP().equals(position)){
+            if(f.getP().getXlarg() == position.getXlarg() && f.getP().getYhaut() == position.getYhaut()){
                 return f;
             }
         }

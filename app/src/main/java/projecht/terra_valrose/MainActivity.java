@@ -36,12 +36,18 @@ public class MainActivity extends Activity {
 
         setContentView(boardView);
 
-        Log.d("moi", "Larg " + SCREEN_LARGEUR);     //les -10 pour etre sur d'etre dans la case (sinon on est pile au bord exterieur)
-        Log.d("moi", "Haut " + SCREEN_HAUTEUR);
-        //Frame f = new Frame(SCREEN_LARGEUR - 10 - (1 * SCREEN_LARGEUR / 6),SCREEN_HAUTEUR - 10 -(1 * SCREEN_HAUTEUR / 8),0);//case 5, 7
-       // Log.d("moi", "pos " + f.getP());
-        //Frame f1 = new Frame(SCREEN_LARGEUR - 10 - (3 * SCREEN_LARGEUR / 6 - 1),SCREEN_HAUTEUR - 10 - (3 * SCREEN_HAUTEUR / 8),0); //3,5
-        //Log.d("moi", "pos " + f1.getP());
+        Log.d("moi", "frame (1,5) : " + engine.getFrameByPosition(new Position(1,5)));//existent
+        Log.d("moi", "frame (1,8) : " + engine.getFrameByPosition(new Position(1, 8)));
+        Log.d("moi", "frame (6,1) : " + engine.getFrameByPosition(new Position(6,1)));
+        Log.d("moi", "frame (6,8) : " + engine.getFrameByPosition(new Position(6,8)));
+        Log.d("moi", "frame (1,1) : " + engine.getFrameByPosition(new Position(1,1)));
+
+        Log.d("moi", "frame (0,1) : " + engine.getFrameByPosition(new Position(0,1)));//n'existent pas
+        Log.d("moi", "frame (1,0) : " + engine.getFrameByPosition(new Position(1,0)));
+        Log.d("moi", "frame (1,9) : " + engine.getFrameByPosition(new Position(1,9)));
+        Log.d("moi", "frame (7,1) : " + engine.getFrameByPosition(new Position(7,1)));
+
+        Log.d("moi", "nb list des frames : " + listFrame.size());
 
     }
 
