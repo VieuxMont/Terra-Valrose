@@ -25,8 +25,8 @@ public class MainActivity extends Activity {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        SCREEN_HAUTEUR = metrics.heightPixels;
         SCREEN_LARGEUR = metrics.widthPixels;
+        SCREEN_HAUTEUR = metrics.heightPixels;
 
         engine = new Engine(this);
         boardView = new BoardView(this);
@@ -36,9 +36,11 @@ public class MainActivity extends Activity {
 
         setContentView(boardView);
 
-        Frame f = new Frame(0,0,100);
+        Log.d("moi", "Larg " + SCREEN_LARGEUR);     //les -10 pour etre sur d'etre dans la case (sinon on est pile au bord exterieur)
+        Log.d("moi", "Haut " + SCREEN_HAUTEUR);
+        Frame f = new Frame(SCREEN_LARGEUR - 10 - (1 * SCREEN_LARGEUR / 6),SCREEN_HAUTEUR - 10 -(1 * SCREEN_HAUTEUR / 8),0);//case 5, 7
         Log.d("moi", "pos " + f.getP());
-        Frame f1 = new Frame(100,0,100);
+        Frame f1 = new Frame(SCREEN_LARGEUR - 10 - (3 * SCREEN_LARGEUR / 6 - 1),SCREEN_HAUTEUR - 10 - (3 * SCREEN_HAUTEUR / 8),0); //3,5
         Log.d("moi", "pos " + f1.getP());
 
     }

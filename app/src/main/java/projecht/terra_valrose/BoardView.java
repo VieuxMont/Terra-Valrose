@@ -94,7 +94,7 @@ public class BoardView extends SurfaceView implements SurfaceHolder.Callback{
 //                        surfaceHolder.unlockCanvasAndPost(canvas);
 //                }
 //
-//                // Pour dessiner à 50 fps
+//                // Pour dessiner ï¿½ 50 fps
 //                try {
 //                    Thread.sleep(20);
 //                } catch (InterruptedException e) {}

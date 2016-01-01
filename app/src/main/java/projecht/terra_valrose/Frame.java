@@ -25,11 +25,11 @@ public class Frame {
 
     private int color = Color.BLACK;
 
-    private Position calculPos(float posX, float posY){       //determine une position par rapport aux coordonnées de la case
+    private Position calculPos(float posX, float posY){       //determine une position par rapport aux coordonnees de la case
         int x = 0;
         int y = 0;
-        x = (int)(6 * (posX / MainActivity.SCREEN_LARGEUR));
-        y = (int)(8 * (posY / MainActivity.SCREEN_HAUTEUR));
+        x = 1 + (int)(6 * (posX / MainActivity.SCREEN_LARGEUR));
+        y = 1 + (int)(8 * (posY / MainActivity.SCREEN_HAUTEUR));
         return new Position(x, y);
     }
 
