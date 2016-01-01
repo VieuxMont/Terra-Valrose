@@ -1,17 +1,32 @@
 package projecht.terra_valrose;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 //le commentaire de test
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
+
+    public static int SCREEN_LARGEUR;
+    public static int SCREEN_HAUTEUR;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        SCREEN_HAUTEUR = metrics.heightPixels;
+        SCREEN_LARGEUR = metrics.widthPixels;
+
+        Log.d("moi", SCREEN_LARGEUR + " " + SCREEN_HAUTEUR);
     }
 
     @Override
