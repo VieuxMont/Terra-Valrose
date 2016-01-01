@@ -11,7 +11,6 @@ public class Engine {
     private MainActivity mainActivity;
     private float COTE_CASE = mainActivity.SCREEN_LARGEUR / 6;
     private List<Frame> listFrame;
-    private HashMap<Position, Frame> hashFrame;
 
     public Engine(MainActivity mainActivity){
         this.mainActivity = mainActivity;
@@ -25,19 +24,27 @@ public class Engine {
                 Position position = new Position(i,j);
                 Frame frame = new Frame(i * COTE_CASE, j * COTE_CASE, COTE_CASE, position);
                 listFrame.add(frame);
-                hashFrame.put(position, frame);
             }
         }
 
         return listFrame;
     }
 
-    private Position calculPos(float posX, float posY){       //determine une position par rapport aux coordonnees de la case
+    public Position calculPos(float posX, float posY){       //determine une position par rapport aux coordonnees de la case
         int x = 0;
         int y = 0;
         x = 1 + (int)(6 * (posX / MainActivity.SCREEN_LARGEUR));
         y = 1 + (int)(8 * (posY / MainActivity.SCREEN_HAUTEUR));
         return new Position(x, y);
+    }
+
+    public Frame getFrameByPosition(Position position) {
+        for(Frame f : listFrame){
+            if(f.getP().equals(position)){
+                return f;
+            }
+        }
+        return null;
     }
 
 
