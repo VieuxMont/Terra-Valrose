@@ -10,6 +10,11 @@ public class Engine {
 
     private MainActivity mainActivity;
     private float COTE_CASE = mainActivity.SCREEN_LARGEUR / 6;
+
+    public List<Frame> getListFrame() {
+        return listFrame;
+    }
+
     private List<Frame> listFrame;
 
     public Engine(MainActivity mainActivity){
