@@ -1,7 +1,6 @@
 package projecht.terra_valrose;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -11,8 +10,10 @@ import android.view.MenuItem;
 //le commentaire de test
 public class MainActivity extends Activity {
 
-    public static int SCREEN_LARGEUR;
-    public static int SCREEN_HAUTEUR;
+    public static float SCREEN_LARGEUR;
+    public static float SCREEN_HAUTEUR;
+    private Engine engine;
+
 
 
     @Override
@@ -26,7 +27,9 @@ public class MainActivity extends Activity {
         SCREEN_HAUTEUR = metrics.heightPixels;
         SCREEN_LARGEUR = metrics.widthPixels;
 
-        Log.d("moi", SCREEN_LARGEUR + " " + SCREEN_HAUTEUR);
+        engine = new Engine(this);
+
+       // Log.d("moi", SCREEN_LARGEUR + " " + SCREEN_HAUTEUR);
     }
 
     @Override
