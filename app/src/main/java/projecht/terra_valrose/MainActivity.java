@@ -6,6 +6,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 
 import java.util.List;
 
@@ -13,10 +14,31 @@ public class MainActivity extends Activity {
 
     public static float SCREEN_LARGEUR;
     public static float SCREEN_HAUTEUR;
+
+
     private Engine engine;
+
+    public BoardView getBoardView() {
+        return boardView;
+    }
+
     private BoardView boardView;
 
+    @Override
+    public boolean onTouchEvent(MotionEvent e) {
 
+        int mx = (int)e.getX();
+        int my = (int)e.getY();
+        Frame f;
+
+        if (e.getAction() == MotionEvent.ACTION_DOWN) {
+
+            f = engine.getFrameByPosition(new Position(mx, my));
+            Log.d("moi", "touch : " + f);
+        }
+
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +57,19 @@ public class MainActivity extends Activity {
         boardView.setListFrame(listFrame);
 
         setContentView(boardView);
-
-        Log.d("moi", "frame (1,5) : " + engine.getFrameByPosition(new Position(1,5)));//existent
-        Log.d("moi", "frame (1,8) : " + engine.getFrameByPosition(new Position(1, 8)));
-        Log.d("moi", "frame (6,1) : " + engine.getFrameByPosition(new Position(6,1)));
-        Log.d("moi", "frame (6,8) : " + engine.getFrameByPosition(new Position(6,8)));
-        Log.d("moi", "frame (1,1) : " + engine.getFrameByPosition(new Position(1,1)));
-
-        Log.d("moi", "frame (0,1) : " + engine.getFrameByPosition(new Position(0,1)));//n'existent pas
-        Log.d("moi", "frame (1,0) : " + engine.getFrameByPosition(new Position(1,0)));
-        Log.d("moi", "frame (1,9) : " + engine.getFrameByPosition(new Position(1,9)));
-        Log.d("moi", "frame (7,1) : " + engine.getFrameByPosition(new Position(7,1)));
-
-        Log.d("moi", "nb list des frames : " + listFrame.size());
+//
+//        Log.d("moi", "frame (1,5) : " + engine.getFrameByPosition(new Position(1,5)));//existent
+//        Log.d("moi", "frame (1,8) : " + engine.getFrameByPosition(new Position(1, 8)));
+//        Log.d("moi", "frame (6,1) : " + engine.getFrameByPosition(new Position(6,1)));
+//        Log.d("moi", "frame (6,8) : " + engine.getFrameByPosition(new Position(6,8)));
+//        Log.d("moi", "frame (1,1) : " + engine.getFrameByPosition(new Position(1,1)));
+//
+//        Log.d("moi", "frame (0,1) : " + engine.getFrameByPosition(new Position(0,1)));//n'existent pas
+//        Log.d("moi", "frame (1,0) : " + engine.getFrameByPosition(new Position(1,0)));
+//        Log.d("moi", "frame (1,9) : " + engine.getFrameByPosition(new Position(1,9)));
+//        Log.d("moi", "frame (7,1) : " + engine.getFrameByPosition(new Position(7,1)));
+//
+//        Log.d("moi", "nb list des frames : " + listFrame.size());
 
     }
 
@@ -72,4 +94,7 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

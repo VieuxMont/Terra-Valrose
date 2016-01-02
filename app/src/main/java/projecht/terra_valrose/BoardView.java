@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -32,6 +33,8 @@ public class BoardView extends SurfaceView implements SurfaceHolder.Callback{
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
     }
+
+
 
     @Override
     protected void onDraw(Canvas pCanvas) {
